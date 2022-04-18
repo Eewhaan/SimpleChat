@@ -106,8 +106,7 @@
 				DBB7A7FC280DB07C0003E14C /* ContactsViewController.swift */,
 				DBC90DD327D2582B0092EC82 /* ChatViewController.swift */,
 			);
-			name = ViewControllers;
-			path = ..;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		DB26FCB327F5D12100FA75C3 /* Model */ = {
@@ -119,7 +118,7 @@
 				DBB7A7EF280D710A0003E14C /* User.swift */,
 			);
 			name = Model;
-			path = ..;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		DB26FCB427F5D14400FA75C3 /* View */ = {
@@ -134,7 +133,7 @@
 				DBB7A7FA280DADE90003E14C /* ContactsCell.swift */,
 			);
 			name = View;
-			path = ..;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		DB26FCB527F5D16400FA75C3 /* Extensions */ = {
@@ -146,8 +145,7 @@
 				DBB7A7F4280D7A450003E14C /* DateExtension.swift */,
 				DBB7A7FE280DB60F0003E14C /* UIImageView.swift */,
 			);
-			name = Extensions;
-			path = ..;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		DBB7A7EC280C3C7E0003E14C /* Services */ = {
