@@ -23,7 +23,6 @@ class ContactsViewController: UITableViewController {
         DataService.shared.getUserList { users in
             self.userList = users
         }
-
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

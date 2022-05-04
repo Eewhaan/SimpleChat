@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C9EE59D923C4BD46562C4AFE /* Pods_simpleChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C89DDAB5AAF496D492F8B46 /* Pods_simpleChat.framework */; };
+		DB02623C281C4C6200373216 /* GroupChannelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB02623B281C4C6200373216 /* GroupChannelMapper.swift */; };
+		DB02623E281C50EC00373216 /* OpenChannelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB02623D281C50EC00373216 /* OpenChannelMapper.swift */; };
 		DB1F2E6E27D6664F009F5BD5 /* PaddedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1F2E6D27D6664F009F5BD5 /* PaddedLabel.swift */; };
 		DB26FCB127F5D0F900FA75C3 /* MessageTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB26FCB027F5D0F900FA75C3 /* MessageTextView.swift */; };
 		DB26FCB727F5D7BF00FA75C3 /* SendButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB26FCB627F5D7BF00FA75C3 /* SendButton.swift */; };
@@ -29,10 +31,10 @@
 		DBC90DC927D24E5A0092EC82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBC90DC827D24E5A0092EC82 /* Assets.xcassets */; };
 		DBC90DCC27D24E5A0092EC82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBC90DCA27D24E5A0092EC82 /* LaunchScreen.storyboard */; };
 		DBC90DD427D2582B0092EC82 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC90DD327D2582B0092EC82 /* ChatViewController.swift */; };
-		DBC90DD627D259E70092EC82 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC90DD527D259E70092EC82 /* ChatCell.swift */; };
+		DBC90DD627D259E70092EC82 /* ChannelCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC90DD527D259E70092EC82 /* ChannelCells.swift */; };
 		DBC90DD827D25D720092EC82 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC90DD727D25D720092EC82 /* Chat.swift */; };
 		DBCF06CE27FDBB930056FA64 /* GroupChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF06CD27FDBB930056FA64 /* GroupChannel.swift */; };
-		DBE9063E27D52DCD00EAF92C /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE9063D27D52DCD00EAF92C /* MessageCell.swift */; };
+		DBE9063E27D52DCD00EAF92C /* MessageCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE9063D27D52DCD00EAF92C /* MessageCells.swift */; };
 		DBEE6B1127FCB4A300B894FE /* ProfileCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEE6B1027FCB4A300B894FE /* ProfileCells.swift */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +42,8 @@
 		2C89DDAB5AAF496D492F8B46 /* Pods_simpleChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_simpleChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		39D07C71E1065A0B7EECCDAB /* Pods-simpleChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-simpleChat.debug.xcconfig"; path = "Target Support Files/Pods-simpleChat/Pods-simpleChat.debug.xcconfig"; sourceTree = "<group>"; };
 		6F2185F54CAB15A30DBDA6FB /* Pods-simpleChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-simpleChat.release.xcconfig"; path = "Target Support Files/Pods-simpleChat/Pods-simpleChat.release.xcconfig"; sourceTree = "<group>"; };
+		DB02623B281C4C6200373216 /* GroupChannelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupChannelMapper.swift; sourceTree = "<group>"; };
+		DB02623D281C50EC00373216 /* OpenChannelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenChannelMapper.swift; sourceTree = "<group>"; };
 		DB1F2E6D27D6664F009F5BD5 /* PaddedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddedLabel.swift; sourceTree = "<group>"; };
 		DB26FCB027F5D0F900FA75C3 /* MessageTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTextView.swift; sourceTree = "<group>"; };
 		DB26FCB627F5D7BF00FA75C3 /* SendButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendButton.swift; sourceTree = "<group>"; };
@@ -63,10 +67,10 @@
 		DBC90DCB27D24E5A0092EC82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DBC90DCD27D24E5A0092EC82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DBC90DD327D2582B0092EC82 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
-		DBC90DD527D259E70092EC82 /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
+		DBC90DD527D259E70092EC82 /* ChannelCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelCells.swift; sourceTree = "<group>"; };
 		DBC90DD727D25D720092EC82 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		DBCF06CD27FDBB930056FA64 /* GroupChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupChannel.swift; sourceTree = "<group>"; };
-		DBE9063D27D52DCD00EAF92C /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
+		DBE9063D27D52DCD00EAF92C /* MessageCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCells.swift; sourceTree = "<group>"; };
 		DBEE6B1027FCB4A300B894FE /* ProfileCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCells.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -124,8 +128,8 @@
 		DB26FCB427F5D14400FA75C3 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				DBE9063D27D52DCD00EAF92C /* MessageCell.swift */,
-				DBC90DD527D259E70092EC82 /* ChatCell.swift */,
+				DBE9063D27D52DCD00EAF92C /* MessageCells.swift */,
+				DBC90DD527D259E70092EC82 /* ChannelCells.swift */,
 				DB26FCB027F5D0F900FA75C3 /* MessageTextView.swift */,
 				DB26FCB627F5D7BF00FA75C3 /* SendButton.swift */,
 				DB26FCB827F5DDD900FA75C3 /* ChatTableView.swift */,
@@ -160,6 +164,8 @@
 			isa = PBXGroup;
 			children = (
 				DBB7A7F1280D73050003E14C /* UserMapper.swift */,
+				DB02623B281C4C6200373216 /* GroupChannelMapper.swift */,
+				DB02623D281C50EC00373216 /* OpenChannelMapper.swift */,
 			);
 			path = Mappers;
 			sourceTree = "<group>";
@@ -325,7 +331,9 @@
 				DBCF06CE27FDBB930056FA64 /* GroupChannel.swift in Sources */,
 				DBC90DC027D24E570092EC82 /* AppDelegate.swift in Sources */,
 				DBC90DD427D2582B0092EC82 /* ChatViewController.swift in Sources */,
-				DBC90DD627D259E70092EC82 /* ChatCell.swift in Sources */,
+				DBC90DD627D259E70092EC82 /* ChannelCells.swift in Sources */,
+				DB02623C281C4C6200373216 /* GroupChannelMapper.swift in Sources */,
+				DB02623E281C50EC00373216 /* OpenChannelMapper.swift in Sources */,
 				DBB7A7F5280D7A450003E14C /* DateExtension.swift in Sources */,
 				DB26FCB127F5D0F900FA75C3 /* MessageTextView.swift in Sources */,
 				DB711ACC27DBC6E200ED1F71 /* extensionSBDMessage.swift in Sources */,
@@ -333,7 +341,7 @@
 				DBB7A7EB280C3C790003E14C /* DataService.swift in Sources */,
 				DBB7A7F2280D73050003E14C /* UserMapper.swift in Sources */,
 				DBB7A7F7280DAAAE0003E14C /* OpenChannel.swift in Sources */,
-				DBE9063E27D52DCD00EAF92C /* MessageCell.swift in Sources */,
+				DBE9063E27D52DCD00EAF92C /* MessageCells.swift in Sources */,
 				DBEE6B1127FCB4A300B894FE /* ProfileCells.swift in Sources */,
 				DB711ACE27DCCFAC00ED1F71 /* ChannelListVC.swift in Sources */,
 				DB26FCB927F5DDD900FA75C3 /* ChatTableView.swift in Sources */,
