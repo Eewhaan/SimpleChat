@@ -10,19 +10,16 @@ import UIKit
 import SnapKit
 import SendBirdSDK
 
-protocol LastMessageDelegate: AnyObject {
-    func updateLastMessage(_ message: SBDBaseMessage)
-}
+
 
 
 class ChatViewController: UIViewController, UITextViewDelegate, UITableViewDelegate, UITableViewDataSource, SBDChannelDelegate {
 
     weak var delegate: SBDChannelDelegate?
-    weak var lastMessageDelegate: LastMessageDelegate?
-
     
-    
-    var firstChannel = SBDOpenChannel()
+    var channelURL: String?
+    var isOpenChannel = false
+    var channel = SBDBaseChannel()
     var messages = [SBDBaseMessage]()
     let userID = UIDevice.current.identifierForVendor?.uuidString
 
@@ -60,16 +57,10 @@ class ChatViewController: UIViewController, UITextViewDelegate, UITableViewDeleg
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tapGesture)
         
-        SBDOpenChannel.getWithUrl("sendbird_open_channel_32157_c677a5b1da71e3b322b2c7b57679621ea4220e98") { [weak self] openChannel, error in
-            guard let openChannel = openChannel, error == nil else { return }
-            self?.firstChannel = openChannel
-            let listQuery = self?.firstChannel.createPreviousMessageListQuery()
-            listQuery?.loadPreviousMessages(withLimit: 100, reverse: false) { messages, error in
-                guard let messsages = messages, error == nil else { return }
-                self?.messages = messsages
-                self?.tableReloadAndScroll()
-            }
+        guard let channelURL = channelURL else {
+            return
         }
+        getChannelWithURL(isOpenChannel, channel: channelURL)
         
     }
     
@@ -145,7 +136,7 @@ class ChatViewController: UIViewController, UITextViewDelegate, UITableViewDeleg
         if text == "" {
             return
         }
-        firstChannel.sendUserMessage(text) { [weak self] userMessage, error in
+        channel.sendUserMessage(text) { [weak self] userMessage, error in
             guard let userMessage = userMessage, error == nil else { return }
             self?.messages.append(userMessage)
             self?.tableReloadAndScroll()
@@ -158,7 +149,6 @@ class ChatViewController: UIViewController, UITextViewDelegate, UITableViewDeleg
         let indexPath = IndexPath(row: self.messages.count - 1, section: 0)
         tableView.reloadData()
         tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
-        lastMessageChanged()
     }
     
     @objc func dismissKeyboard(_ sender: UITapGestureRecognizer) {
@@ -170,9 +160,29 @@ class ChatViewController: UIViewController, UITextViewDelegate, UITableViewDeleg
         tableReloadAndScroll()
     }
     
-    private func lastMessageChanged() {
-        if let lastMessage = messages.last {
-            lastMessageDelegate?.updateLastMessage(lastMessage)
+    func getChannelWithURL (_ isOpenChannel: Bool, channel URL: String) {
+        if isOpenChannel {
+            SBDOpenChannel.getWithUrl(URL) { [weak self] openChannel, error in
+                guard let openChannel = openChannel, error == nil else { return }
+                self?.channel = openChannel
+                let listQuery = self?.channel.createPreviousMessageListQuery()
+                listQuery?.loadPreviousMessages(withLimit: 100, reverse: false) { messages, error in
+                    guard let messsages = messages, error == nil else { return }
+                    self?.messages = messsages
+                    self?.tableReloadAndScroll()
+                }
+            }
+        } else {
+            SBDGroupChannel.getWithUrl(URL) { [weak self] groupChannel, error in
+                guard let groupChannel = groupChannel, error == nil else { return }
+                self?.channel = groupChannel
+                let listQuery = self?.channel.createPreviousMessageListQuery()
+                listQuery?.loadPreviousMessages(withLimit: 100, reverse: false) { messages, error in
+                    guard let messages = messages, error == nil else { return }
+                    self?.messages = messages
+                    self?.tableReloadAndScroll()
+                }
+            }
         }
     }
 

@@ -10,21 +10,20 @@ import SendBirdSDK
 
 
 
-class ChannelListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, LastMessageDelegate {
+class ChannelListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var newChannelButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
-    var lastMessage = ""
     var collection: SBDGroupChannelCollection?
-    var openChannels = [SBDOpenChannel]() {
+    var openChannels = [OpenChannel]() {
         didSet {
             DispatchQueue.main.async { [weak self] in
                 self?.tableView.reloadData()
             }
         }
     }
-    var groupChannels = [SBDGroupChannel]() {
+    var groupChannels = [GroupChannel]() {
         didSet {
             DispatchQueue.main.async { [weak self] in
                 self?.tableView.reloadData()
@@ -43,31 +42,58 @@ class ChannelListViewController: UIViewController, UITableViewDataSource, UITabl
         }
     }
 
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ChatCell", for: indexPath) as? ChatCell else {
-            return UITableViewCell()
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch section {
+        case 0:
+            return openChannels.count
+        default:
+            return groupChannels.count
         }
-        cell.channelName.text = "FirstChannel"
-        cell.lastMessage.text = lastMessage
-        cell.channelImage.image = UIImage(systemName: "person.circle.fill")
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell = UITableViewCell()
+        if indexPath.section == 0 {
+            guard let openChannelCell = tableView.dequeueReusableCell(withIdentifier: "OpenChannelCell", for: indexPath) as? OpenChannelCell else {
+                return cell
+            }
+            openChannelCell.channelName.text = openChannels[indexPath.row].channelName
+            if let imageName = openChannels[indexPath.row].channelImage {
+                let url = URL(string: imageName)!
+                openChannelCell.channelImage.load(url: url)
+            }
+            cell = openChannelCell
+        } else {
+            guard let groupChannelCell = tableView.dequeueReusableCell(withIdentifier: "GroupChannelCell", for: indexPath) as? GroupChannelCell else {
+                return cell
+            }
+            groupChannelCell.channelName.text = groupChannels[indexPath.row].channelName
+            groupChannelCell.lastMessage.text = groupChannels[indexPath.row].lastMessage?.message
+            if let imageName = groupChannels[indexPath.row].channelImage {
+                let url = URL(string: imageName)!
+                groupChannelCell.channelImage.load(url: url)
+            }
+            cell = groupChannelCell
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "ChatView") as? ChatViewController else { return }
-        vc.lastMessageDelegate = self
+        if indexPath.section == 0 {
+            vc.channelURL = openChannels[indexPath.row].channelURL
+            vc.isOpenChannel = true
+        } else {
+            vc.channelURL = groupChannels[indexPath.row].channelURL
+            vc.isOpenChannel = false
+        }
         navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    func updateLastMessage(_ message: SBDBaseMessage) {
-        lastMessage = message.message
-        tableView.reloadData()
     }
     
     @IBAction func newChannelTapped(_ sender: UIButton) {

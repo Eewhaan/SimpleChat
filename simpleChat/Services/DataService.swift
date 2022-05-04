@@ -14,58 +14,58 @@ class DataService {
     static let shared = DataService()
     
     private init() {}
-    
-    private var users = [User]()
-    private var groupChannels = [SBDGroupChannel]()
-    private var openChannels = [SBDOpenChannel]()
-    
+        
     func getUserList(_ completion: @escaping ([User]) -> Void) {
         let listQuery = SBDMain.createApplicationUserListQuery()
-        listQuery?.loadNextPage(completionHandler: { (users, error) in
+        listQuery?.loadNextPage(completionHandler: { (sbdUsers, error) in
             guard error == nil else {
                 print(error!.localizedDescription)
-                return }
-            guard let users = users else {
+                return
+            }
+            
+            guard let sbdUsers = sbdUsers else {
                 print ("Failed to load users")
-                return }
-            self.users = UserMapper.map(users: users)
+                return
+            }
+            
+            let users = UserMapper.map(users: sbdUsers)
+            completion(users)
         })
-        completion(users)
     }
     
-    func getGroupChannelList(_ completion: @escaping ([SBDGroupChannel]) -> Void) {
+    func getGroupChannelList(_ completion: @escaping ([GroupChannel]) -> Void) {
         let query = SBDGroupChannel.createMyGroupChannelListQuery()
         query?.includeEmptyChannel = false
         query?.order = .chronological
-        query?.loadNextPage(completionHandler: { (channels, error) in
+        query?.loadNextPage(completionHandler: { (sbdGroupChannels, error) in
             guard error == nil else {
                 print(error!.localizedDescription)
                 return
             }
-            guard let channels = channels else {
+            guard let sbdGroupChannels = sbdGroupChannels else {
                 print("Unable to load channels")
                 return
             }
-            self.groupChannels = channels
+            let groupChannels = GroupChannelMapper.map(groupChannels: sbdGroupChannels)
+            completion(groupChannels)
         })
-        completion(groupChannels)
     }
     
-    func getOpenChannelList(_ completion: @escaping ([SBDOpenChannel]) -> Void) {
+    func getOpenChannelList(_ completion: @escaping ([OpenChannel]) -> Void) {
         let query = SBDOpenChannel.createOpenChannelListQuery()
         query?.limit = 4
-        query?.loadNextPage(completionHandler: { (channels, error) in
+        query?.loadNextPage(completionHandler: { (sbdOpenChannels, error) in
             guard error == nil else {
                 print(error!.localizedDescription)
                 return
             }
-            guard let channels = channels else {
+            guard let sbdOpenChannels = sbdOpenChannels else {
                 print("Unable to load channels")
                 return
             }
-            self.openChannels = channels
+            let openChannels = OpenChannelMapper.map(openChannels: sbdOpenChannels)
+            completion(openChannels)
         })
-        completion(openChannels)
     }
     
 }

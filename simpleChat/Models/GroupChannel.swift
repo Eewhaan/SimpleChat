@@ -6,13 +6,14 @@
 //
 
 import Foundation
+import SendBirdSDK
 
 struct GroupChannel {
+    let channelURL: String
     let channelName: String
-    let channelImage: String
-    let lastMessage: String
-    let lastSender: String
+    let channelImage: String?
+    let lastMessage: SBDBaseMessage?
     var isDistinct: Bool
-    var numberOfUnreadMessages: Int
+    var numberOfUnreadMessages: UInt?
     
 }

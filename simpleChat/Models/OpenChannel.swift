@@ -8,5 +8,9 @@
 import Foundation
 
 struct OpenChannel {
+    let channelURL: String
+    let channelName: String
+    let channelImage: String?
+    let numberOfParticipants: Int
     
 }
