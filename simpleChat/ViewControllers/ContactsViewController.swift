@@ -5,6 +5,7 @@
 //  Created by Ivan Pavic on 18.4.22..
 //
 
+import SendBirdSDK
 import UIKit
 
 class ContactsViewController: UITableViewController {
@@ -33,11 +34,7 @@ class ContactsViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ContactsCell", for: indexPath) as? ContactsCell else {
             return UITableViewCell()
         }
-        cell.userSelectedImageView.isHidden = true
-        cell.userName.text = userList[indexPath.row].nickName
-        if let url = URL(string: userList[indexPath.row].profileURL) {
-            cell.userImageView.load(url: url)
-        }
+        cell.configure(userName: userList[indexPath.row].nickName, userImage: userList[indexPath.row].profileURL)
         return cell
     }
     

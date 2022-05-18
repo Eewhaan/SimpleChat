@@ -40,6 +40,11 @@ class ChatViewController: UIViewController, UITextViewDelegate, UITableViewDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.hidesBackButton = true
+        let newBackButton = UIBarButtonItem(image: UIImage(systemName: "arrow.backward"), style: .plain, target: self, action: #selector(backAction))
+        navigationItem.leftBarButtonItem = newBackButton
+        
+        
         SBDMain.add(self, identifier: "ChatView")
         
         let notificationCenter = NotificationCenter.default
@@ -62,6 +67,10 @@ class ChatViewController: UIViewController, UITextViewDelegate, UITableViewDeleg
         }
         getChannelWithURL(isOpenChannel, channel: channelURL)
         
+    }
+    
+    @objc func backAction(sender: UIBarButtonItem) {
+        navigationController?.popToRootViewController(animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -146,9 +155,13 @@ class ChatViewController: UIViewController, UITextViewDelegate, UITableViewDeleg
     }
     
     func tableReloadAndScroll() {
-        let indexPath = IndexPath(row: self.messages.count - 1, section: 0)
-        tableView.reloadData()
-        tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+        if messages.count > 0 {
+            let indexPath = IndexPath(row: self.messages.count - 1, section: 0)
+            tableView.reloadData()
+            tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+        } else {
+            tableView.reloadData()
+        }
     }
     
     @objc func dismissKeyboard(_ sender: UITapGestureRecognizer) {
@@ -165,6 +178,9 @@ class ChatViewController: UIViewController, UITextViewDelegate, UITableViewDeleg
             SBDOpenChannel.getWithUrl(URL) { [weak self] openChannel, error in
                 guard let openChannel = openChannel, error == nil else { return }
                 self?.channel = openChannel
+                openChannel.enter(completionHandler:{ error in
+                    guard error == nil else { return }
+                })
                 let listQuery = self?.channel.createPreviousMessageListQuery()
                 listQuery?.loadPreviousMessages(withLimit: 100, reverse: false) { messages, error in
                     guard let messsages = messages, error == nil else { return }

@@ -17,6 +17,8 @@
 		DB711ACC27DBC6E200ED1F71 /* extensionSBDMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB711ACB27DBC6E200ED1F71 /* extensionSBDMessage.swift */; };
 		DB711ACE27DCCFAC00ED1F71 /* ChannelListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB711ACD27DCCFAC00ED1F71 /* ChannelListVC.swift */; };
 		DB711AD027DCEA1700ED1F71 /* extensionChannelListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB711ACF27DCEA1700ED1F71 /* extensionChannelListVC.swift */; };
+		DBA5C70C282BEC290082369C /* NewChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA5C70B282BEC290082369C /* NewChannelCell.swift */; };
+		DBA5C70E282BF05C0082369C /* NewChannelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA5C70D282BF05C0082369C /* NewChannelVC.swift */; };
 		DBB7A7EB280C3C790003E14C /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB7A7EA280C3C790003E14C /* DataService.swift */; };
 		DBB7A7F0280D710A0003E14C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB7A7EF280D710A0003E14C /* User.swift */; };
 		DBB7A7F2280D73050003E14C /* UserMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB7A7F1280D73050003E14C /* UserMapper.swift */; };
@@ -51,6 +53,8 @@
 		DB711ACB27DBC6E200ED1F71 /* extensionSBDMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionSBDMessage.swift; sourceTree = "<group>"; };
 		DB711ACD27DCCFAC00ED1F71 /* ChannelListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelListVC.swift; sourceTree = "<group>"; };
 		DB711ACF27DCEA1700ED1F71 /* extensionChannelListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionChannelListVC.swift; sourceTree = "<group>"; };
+		DBA5C70B282BEC290082369C /* NewChannelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChannelCell.swift; sourceTree = "<group>"; };
+		DBA5C70D282BF05C0082369C /* NewChannelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChannelVC.swift; sourceTree = "<group>"; };
 		DBB7A7EA280C3C790003E14C /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		DBB7A7EF280D710A0003E14C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DBB7A7F1280D73050003E14C /* UserMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMapper.swift; sourceTree = "<group>"; };
@@ -107,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				DB711ACD27DCCFAC00ED1F71 /* ChannelListVC.swift */,
+				DBA5C70D282BF05C0082369C /* NewChannelVC.swift */,
 				DBB7A7FC280DB07C0003E14C /* ContactsViewController.swift */,
 				DBC90DD327D2582B0092EC82 /* ChatViewController.swift */,
 			);
@@ -134,6 +139,7 @@
 				DB26FCB627F5D7BF00FA75C3 /* SendButton.swift */,
 				DB26FCB827F5DDD900FA75C3 /* ChatTableView.swift */,
 				DBEE6B1027FCB4A300B894FE /* ProfileCells.swift */,
+				DBA5C70B282BEC290082369C /* NewChannelCell.swift */,
 				DBB7A7FA280DADE90003E14C /* ContactsCell.swift */,
 			);
 			name = View;
@@ -344,11 +350,13 @@
 				DBE9063E27D52DCD00EAF92C /* MessageCells.swift in Sources */,
 				DBEE6B1127FCB4A300B894FE /* ProfileCells.swift in Sources */,
 				DB711ACE27DCCFAC00ED1F71 /* ChannelListVC.swift in Sources */,
+				DBA5C70C282BEC290082369C /* NewChannelCell.swift in Sources */,
 				DB26FCB927F5DDD900FA75C3 /* ChatTableView.swift in Sources */,
 				DB1F2E6E27D6664F009F5BD5 /* PaddedLabel.swift in Sources */,
 				DB26FCB727F5D7BF00FA75C3 /* SendButton.swift in Sources */,
 				DBB7A7FF280DB60F0003E14C /* UIImageView.swift in Sources */,
 				DB711AD027DCEA1700ED1F71 /* extensionChannelListVC.swift in Sources */,
+				DBA5C70E282BF05C0082369C /* NewChannelVC.swift in Sources */,
 				DBC90DC227D24E570092EC82 /* SceneDelegate.swift in Sources */,
 				DBB7A7FB280DADE90003E14C /* ContactsCell.swift in Sources */,
 			);

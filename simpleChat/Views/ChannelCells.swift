@@ -21,6 +21,13 @@ class OpenChannelCell: UITableViewCell {
         channelImage.clipsToBounds = true
     }
     
+    func configure(openChannels: [OpenChannel], index: Int) {
+        self.channelName.text = openChannels[index].channelName
+        if let channelImage = openChannels[index].channelImage {
+            let url = URL(string: channelImage)!
+            self.channelImage.load(url: url)
+        }
+    }
 }
 
 class GroupChannelCell: UITableViewCell {
@@ -37,6 +44,15 @@ class GroupChannelCell: UITableViewCell {
         lastMessage.font = UIFont(name: "Avenir", size: 13)
         channelImage.layer.cornerRadius = 30
         channelImage.clipsToBounds = true
+    }
+    
+    func configure(groupChannels: [GroupChannel], index: Int) {
+        self.channelName.text = groupChannels[index].channelName
+        self.lastMessage.text = groupChannels[index].lastMessage?.message
+        if let channelImage = groupChannels[index].channelImage {
+            let url = URL (string: channelImage)!
+            self.channelImage.load(url: url)
+        }
     }
 
 }

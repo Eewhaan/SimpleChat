@@ -20,29 +20,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         } completionHandler: { error in
             // code to inform user if he is connected to server
-            
         }
-        let params = SBDOpenChannelParams()
-        params.name = "First channel"
-        var user1 = SBDUser()
-
         
         if let userID = UIDevice.current.identifierForVendor?.uuidString {
             SBDMain.connect(withUserId: userID) { user, error in
             guard let user = user, error == nil else { return }
-            user1 = user
             }
         }
-        
-        SBDOpenChannel.getWithUrl("sendbird_open_channel_32157_c677a5b1da71e3b322b2c7b57679621ea4220e98") { openChannel, error in
-                guard let openChannel = openChannel, error == nil else { return }
-                
-                openChannel.enter(completionHandler: {error in
-                    guard error == nil else { return }
-                    
-                })
-            
-            }
         
         
         
