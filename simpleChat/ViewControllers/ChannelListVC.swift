@@ -15,7 +15,6 @@ class ChannelListViewController: UIViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var newChannelButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
-    var collection: SBDGroupChannelCollection?
     var openChannels = [OpenChannel]() {
         didSet {
             DispatchQueue.main.async { [weak self] in
@@ -33,6 +32,16 @@ class ChannelListViewController: UIViewController, UITableViewDataSource, UITabl
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        DataService.shared.getOpenChannelList { channels in
+            self.openChannels = channels
+        }
+        DataService.shared.getGroupChannelList { channels in
+            self.groupChannels = channels
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         
         DataService.shared.getOpenChannelList { channels in
             self.openChannels = channels
@@ -61,30 +70,20 @@ class ChannelListViewController: UIViewController, UITableViewDataSource, UITabl
             guard let openChannelCell = tableView.dequeueReusableCell(withIdentifier: "OpenChannelCell", for: indexPath) as? OpenChannelCell else {
                 return cell
             }
-            openChannelCell.channelName.text = openChannels[indexPath.row].channelName
-            if let imageName = openChannels[indexPath.row].channelImage {
-                let url = URL(string: imageName)!
-                openChannelCell.channelImage.load(url: url)
-            }
+            openChannelCell.configure(openChannels: openChannels, index: indexPath.row)
             cell = openChannelCell
         } else {
             guard let groupChannelCell = tableView.dequeueReusableCell(withIdentifier: "GroupChannelCell", for: indexPath) as? GroupChannelCell else {
                 return cell
             }
-            groupChannelCell.channelName.text = groupChannels[indexPath.row].channelName
-            groupChannelCell.lastMessage.text = groupChannels[indexPath.row].lastMessage?.message
-            if let imageName = groupChannels[indexPath.row].channelImage {
-                let url = URL(string: imageName)!
-                groupChannelCell.channelImage.load(url: url)
-            }
+            groupChannelCell.configure(groupChannels: groupChannels, index: indexPath.row)
             cell = groupChannelCell
         }
         return cell
     }
     
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "ChatView") as? ChatViewController else { return }
         if indexPath.section == 0 {
             vc.channelURL = openChannels[indexPath.row].channelURL
@@ -96,8 +95,9 @@ class ChannelListViewController: UIViewController, UITableViewDataSource, UITabl
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    
     @IBAction func newChannelTapped(_ sender: UIButton) {
-        guard let vc = storyboard?.instantiateViewController(withIdentifier: "ContactsVC") as? ContactsViewController else { return }
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "NewChannelVC") as? NewChannelVC else { return }
         navigationController?.pushViewController(vc, animated: true)
     }
     

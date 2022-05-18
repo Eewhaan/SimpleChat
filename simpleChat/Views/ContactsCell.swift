@@ -26,5 +26,13 @@ class ContactsCell: UITableViewCell {
             self.userSelectedImageView.isHidden.toggle()
         }
     }
+    
+    func configure(userName: String, userImage: String) {
+        self.userSelectedImageView.isHidden = true
+        self.userName.text = userName
+        if let url = URL(string: userImage) {
+            self.userImageView.load(url: url)
+        }
+    }
 
 }
