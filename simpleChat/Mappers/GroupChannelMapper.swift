@@ -18,6 +18,7 @@ struct GroupChannelMapper {
             let isDistinct = groupChannel.isDistinct
             let lastMessage = groupChannel.lastMessage
             let numberOfUnreadMessages = groupChannel.unreadMentionCount
+            let memberCount = groupChannel.joinedMemberCount
             
             let newGroupChannel = GroupChannel (
                 channelURL: channelURL,
@@ -25,7 +26,8 @@ struct GroupChannelMapper {
                 channelImage: channelImage,
                 lastMessage: lastMessage,
                 isDistinct: isDistinct,
-                numberOfUnreadMessages: numberOfUnreadMessages)
+                numberOfUnreadMessages: numberOfUnreadMessages,
+                memberCount: memberCount)
             mappedChannels.append(newGroupChannel)
         }
         return mappedChannels

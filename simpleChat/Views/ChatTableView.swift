@@ -17,6 +17,7 @@ class ChatTable: UITableView {
         self.dataSource = delegate
         self.register(SentMessage.self, forCellReuseIdentifier: "SentMessage")
         self.register(RecievedMessage.self, forCellReuseIdentifier: "RecievedMessage")
+        self.register(RecievedGroupMessage.self, forCellReuseIdentifier: "RecievedGroupMessage")
         self.separatorStyle = .none
         self.rowHeight = UITableView.automaticDimension
         self.estimatedRowHeight = 1000

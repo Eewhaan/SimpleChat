@@ -21,8 +21,6 @@ class ChatViewController: UIViewController, UITextViewDelegate, UITableViewDeleg
     var isOpenChannel = false
     var channel = SBDBaseChannel()
     var messages = [SBDBaseMessage]()
-    let userID = UIDevice.current.identifierForVendor?.uuidString
-
     
     var tableView: ChatTable!
     var sendButton: SendButton!
@@ -86,10 +84,19 @@ class ChatViewController: UIViewController, UITextViewDelegate, UITableViewDeleg
                 cell = sentCell
             }
         } else {
-            if let recievedCell = tableView.dequeueReusableCell(withIdentifier: "RecievedMessage", for: indexPath) as? RecievedMessage {
-            recievedCell.loadSetup()
-            recievedCell.messageLabel.text = messages[indexPath.row].message
-            cell = recievedCell
+            if channel.customType == CustomType.basicChannel.rawValue {
+                if let recievedCell = tableView.dequeueReusableCell(withIdentifier: "RecievedMessage", for: indexPath) as? RecievedMessage {
+                    recievedCell.loadSetup()
+                    recievedCell.messageLabel.text = messages[indexPath.row].message
+                    cell = recievedCell
+                }
+            } else {
+                if let recievedCell = tableView.dequeueReusableCell(withIdentifier: "RecievedGroupMessage", for: indexPath) as? RecievedGroupMessage {
+                    recievedCell.loadSetup()
+                    recievedCell.messageLabel.text = messages[indexPath.row].message
+                    recievedCell.senderLabel.text = messages[indexPath.row].sender?.nickname
+                    cell = recievedCell
+                }
             }
         }
         return cell
@@ -178,7 +185,7 @@ class ChatViewController: UIViewController, UITextViewDelegate, UITableViewDeleg
             SBDOpenChannel.getWithUrl(URL) { [weak self] openChannel, error in
                 guard let openChannel = openChannel, error == nil else { return }
                 self?.channel = openChannel
-                openChannel.enter(completionHandler:{ error in
+                openChannel.enter(completionHandler: { error in
                     guard error == nil else { return }
                 })
                 let listQuery = self?.channel.createPreviousMessageListQuery()

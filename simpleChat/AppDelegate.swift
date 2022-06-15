@@ -22,10 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // code to inform user if he is connected to server
         }
         
-        if let userID = UIDevice.current.identifierForVendor?.uuidString {
-            SBDMain.connect(withUserId: userID) { user, error in
+        SBDMain.connect(withUserId: ChannelListViewController().userID) { user, error in
             guard let user = user, error == nil else { return }
-            }
         }
         
         

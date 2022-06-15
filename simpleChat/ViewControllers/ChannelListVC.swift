@@ -14,6 +14,7 @@ class ChannelListViewController: UIViewController, UITableViewDataSource, UITabl
     
     @IBOutlet weak var newChannelButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
+    let userID = "4"
     
     var openChannels = [OpenChannel]() {
         didSet {
