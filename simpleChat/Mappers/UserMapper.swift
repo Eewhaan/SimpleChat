@@ -26,7 +26,10 @@ struct UserMapper {
                 isActive: isActive,
                 isOnline: isOnline,
                 lastSeen: lastSeen.toString())
-            mappedUsers.append(newUser)
+            
+            if newUser.userId != ChannelListViewController().userID {
+                mappedUsers.append(newUser)
+            }
         }
         return mappedUsers
     }

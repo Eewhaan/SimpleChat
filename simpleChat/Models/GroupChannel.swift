@@ -15,5 +15,6 @@ struct GroupChannel {
     let lastMessage: SBDBaseMessage?
     var isDistinct: Bool
     var numberOfUnreadMessages: UInt?
+    var memberCount: UInt
     
 }

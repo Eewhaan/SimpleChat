@@ -18,7 +18,6 @@ class NewChannelVC: UITableViewController {
         }
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -63,6 +62,7 @@ class NewChannelVC: UITableViewController {
                     }
                     let parameters = SBDOpenChannelParams()
                     parameters.name = channelName
+                    parameters.customType = CustomType.openChannel.rawValue
                     SBDOpenChannel.createChannel(with: parameters) { [weak self] openChannel, error in
                         guard error == nil else { return }
                         guard let vc = self?.storyboard?.instantiateViewController(withIdentifier: "ChatView") as? ChatViewController else { return }
@@ -77,9 +77,8 @@ class NewChannelVC: UITableViewController {
         } else {
             let parameters = SBDGroupChannelParams()
             parameters.isDistinct = true
+            parameters.customType = CustomType.basicChannel.rawValue
             parameters.addUserId(userList[indexPath.row].userId)
-            parameters.name = userList[indexPath.row].nickName
-            parameters.coverUrl = userList[indexPath.row].profileURL
             
             SBDGroupChannel.createChannel(with: parameters) { [weak self] groupChannel, error in
                 guard error == nil else {return}

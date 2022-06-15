@@ -14,6 +14,10 @@
 		DB26FCB127F5D0F900FA75C3 /* MessageTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB26FCB027F5D0F900FA75C3 /* MessageTextView.swift */; };
 		DB26FCB727F5D7BF00FA75C3 /* SendButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB26FCB627F5D7BF00FA75C3 /* SendButton.swift */; };
 		DB26FCB927F5DDD900FA75C3 /* ChatTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB26FCB827F5DDD900FA75C3 /* ChatTableView.swift */; };
+		DB2B8FA4284110F200B4EFB7 /* CustomType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2B8FA3284110F200B4EFB7 /* CustomType.swift */; };
+		DB2B8FA72841144300B4EFB7 /* RecievedMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2B8FA62841144300B4EFB7 /* RecievedMessageCell.swift */; };
+		DB2B8FA92841148400B4EFB7 /* RecievedGroupMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2B8FA82841148400B4EFB7 /* RecievedGroupMessageCell.swift */; };
+		DB2B8FAC2841198700B4EFB7 /* OpenChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2B8FAB2841198700B4EFB7 /* OpenChannelCell.swift */; };
 		DB711ACC27DBC6E200ED1F71 /* extensionSBDMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB711ACB27DBC6E200ED1F71 /* extensionSBDMessage.swift */; };
 		DB711ACE27DCCFAC00ED1F71 /* ChannelListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB711ACD27DCCFAC00ED1F71 /* ChannelListVC.swift */; };
 		DB711AD027DCEA1700ED1F71 /* extensionChannelListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB711ACF27DCEA1700ED1F71 /* extensionChannelListVC.swift */; };
@@ -33,12 +37,25 @@
 		DBC90DC927D24E5A0092EC82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBC90DC827D24E5A0092EC82 /* Assets.xcassets */; };
 		DBC90DCC27D24E5A0092EC82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBC90DCA27D24E5A0092EC82 /* LaunchScreen.storyboard */; };
 		DBC90DD427D2582B0092EC82 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC90DD327D2582B0092EC82 /* ChatViewController.swift */; };
-		DBC90DD627D259E70092EC82 /* ChannelCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC90DD527D259E70092EC82 /* ChannelCells.swift */; };
+		DBC90DD627D259E70092EC82 /* GroupChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC90DD527D259E70092EC82 /* GroupChannelCell.swift */; };
 		DBC90DD827D25D720092EC82 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC90DD727D25D720092EC82 /* Chat.swift */; };
 		DBCF06CE27FDBB930056FA64 /* GroupChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF06CD27FDBB930056FA64 /* GroupChannel.swift */; };
-		DBE9063E27D52DCD00EAF92C /* MessageCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE9063D27D52DCD00EAF92C /* MessageCells.swift */; };
+		DBE9063E27D52DCD00EAF92C /* SentMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE9063D27D52DCD00EAF92C /* SentMessageCell.swift */; };
 		DBEE6B1127FCB4A300B894FE /* ProfileCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEE6B1027FCB4A300B894FE /* ProfileCells.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		DB2B8FBD28411E1F00B4EFB7 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2C89DDAB5AAF496D492F8B46 /* Pods_simpleChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_simpleChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,6 +67,10 @@
 		DB26FCB027F5D0F900FA75C3 /* MessageTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTextView.swift; sourceTree = "<group>"; };
 		DB26FCB627F5D7BF00FA75C3 /* SendButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendButton.swift; sourceTree = "<group>"; };
 		DB26FCB827F5DDD900FA75C3 /* ChatTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableView.swift; sourceTree = "<group>"; };
+		DB2B8FA3284110F200B4EFB7 /* CustomType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomType.swift; sourceTree = "<group>"; };
+		DB2B8FA62841144300B4EFB7 /* RecievedMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecievedMessageCell.swift; sourceTree = "<group>"; };
+		DB2B8FA82841148400B4EFB7 /* RecievedGroupMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecievedGroupMessageCell.swift; sourceTree = "<group>"; };
+		DB2B8FAB2841198700B4EFB7 /* OpenChannelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenChannelCell.swift; sourceTree = "<group>"; };
 		DB711ACB27DBC6E200ED1F71 /* extensionSBDMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionSBDMessage.swift; sourceTree = "<group>"; };
 		DB711ACD27DCCFAC00ED1F71 /* ChannelListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelListVC.swift; sourceTree = "<group>"; };
 		DB711ACF27DCEA1700ED1F71 /* extensionChannelListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionChannelListVC.swift; sourceTree = "<group>"; };
@@ -71,10 +92,10 @@
 		DBC90DCB27D24E5A0092EC82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DBC90DCD27D24E5A0092EC82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DBC90DD327D2582B0092EC82 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
-		DBC90DD527D259E70092EC82 /* ChannelCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelCells.swift; sourceTree = "<group>"; };
+		DBC90DD527D259E70092EC82 /* GroupChannelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupChannelCell.swift; sourceTree = "<group>"; };
 		DBC90DD727D25D720092EC82 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		DBCF06CD27FDBB930056FA64 /* GroupChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupChannel.swift; sourceTree = "<group>"; };
-		DBE9063D27D52DCD00EAF92C /* MessageCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCells.swift; sourceTree = "<group>"; };
+		DBE9063D27D52DCD00EAF92C /* SentMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentMessageCell.swift; sourceTree = "<group>"; };
 		DBEE6B1027FCB4A300B894FE /* ProfileCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCells.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -125,6 +146,7 @@
 				DBCF06CD27FDBB930056FA64 /* GroupChannel.swift */,
 				DBB7A7F6280DAAAD0003E14C /* OpenChannel.swift */,
 				DBB7A7EF280D710A0003E14C /* User.swift */,
+				DB2B8FA3284110F200B4EFB7 /* CustomType.swift */,
 			);
 			name = Model;
 			path = Models;
@@ -133,11 +155,11 @@
 		DB26FCB427F5D14400FA75C3 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				DBE9063D27D52DCD00EAF92C /* MessageCells.swift */,
-				DBC90DD527D259E70092EC82 /* ChannelCells.swift */,
+				DB2B8FA52841141E00B4EFB7 /* MessageCells */,
+				DB2B8FAA2841196A00B4EFB7 /* ChannelCells */,
+				DB26FCB827F5DDD900FA75C3 /* ChatTableView.swift */,
 				DB26FCB027F5D0F900FA75C3 /* MessageTextView.swift */,
 				DB26FCB627F5D7BF00FA75C3 /* SendButton.swift */,
-				DB26FCB827F5DDD900FA75C3 /* ChatTableView.swift */,
 				DBEE6B1027FCB4A300B894FE /* ProfileCells.swift */,
 				DBA5C70B282BEC290082369C /* NewChannelCell.swift */,
 				DBB7A7FA280DADE90003E14C /* ContactsCell.swift */,
@@ -156,6 +178,25 @@
 				DBB7A7FE280DB60F0003E14C /* UIImageView.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DB2B8FA52841141E00B4EFB7 /* MessageCells */ = {
+			isa = PBXGroup;
+			children = (
+				DBE9063D27D52DCD00EAF92C /* SentMessageCell.swift */,
+				DB2B8FA62841144300B4EFB7 /* RecievedMessageCell.swift */,
+				DB2B8FA82841148400B4EFB7 /* RecievedGroupMessageCell.swift */,
+			);
+			path = MessageCells;
+			sourceTree = "<group>";
+		};
+		DB2B8FAA2841196A00B4EFB7 /* ChannelCells */ = {
+			isa = PBXGroup;
+			children = (
+				DBC90DD527D259E70092EC82 /* GroupChannelCell.swift */,
+				DB2B8FAB2841198700B4EFB7 /* OpenChannelCell.swift */,
+			);
+			path = ChannelCells;
 			sourceTree = "<group>";
 		};
 		DBB7A7EC280C3C7E0003E14C /* Services */ = {
@@ -225,6 +266,7 @@
 				DBC90DB927D24E570092EC82 /* Frameworks */,
 				DBC90DBA27D24E570092EC82 /* Resources */,
 				AA4098803D87D86820B388C3 /* [CP] Embed Pods Frameworks */,
+				DB2B8FBD28411E1F00B4EFB7 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
@@ -337,23 +379,27 @@
 				DBCF06CE27FDBB930056FA64 /* GroupChannel.swift in Sources */,
 				DBC90DC027D24E570092EC82 /* AppDelegate.swift in Sources */,
 				DBC90DD427D2582B0092EC82 /* ChatViewController.swift in Sources */,
-				DBC90DD627D259E70092EC82 /* ChannelCells.swift in Sources */,
+				DBC90DD627D259E70092EC82 /* GroupChannelCell.swift in Sources */,
 				DB02623C281C4C6200373216 /* GroupChannelMapper.swift in Sources */,
 				DB02623E281C50EC00373216 /* OpenChannelMapper.swift in Sources */,
+				DB2B8FA72841144300B4EFB7 /* RecievedMessageCell.swift in Sources */,
 				DBB7A7F5280D7A450003E14C /* DateExtension.swift in Sources */,
 				DB26FCB127F5D0F900FA75C3 /* MessageTextView.swift in Sources */,
 				DB711ACC27DBC6E200ED1F71 /* extensionSBDMessage.swift in Sources */,
 				DBB7A7F0280D710A0003E14C /* User.swift in Sources */,
+				DB2B8FA4284110F200B4EFB7 /* CustomType.swift in Sources */,
 				DBB7A7EB280C3C790003E14C /* DataService.swift in Sources */,
 				DBB7A7F2280D73050003E14C /* UserMapper.swift in Sources */,
 				DBB7A7F7280DAAAE0003E14C /* OpenChannel.swift in Sources */,
-				DBE9063E27D52DCD00EAF92C /* MessageCells.swift in Sources */,
+				DBE9063E27D52DCD00EAF92C /* SentMessageCell.swift in Sources */,
 				DBEE6B1127FCB4A300B894FE /* ProfileCells.swift in Sources */,
 				DB711ACE27DCCFAC00ED1F71 /* ChannelListVC.swift in Sources */,
 				DBA5C70C282BEC290082369C /* NewChannelCell.swift in Sources */,
 				DB26FCB927F5DDD900FA75C3 /* ChatTableView.swift in Sources */,
 				DB1F2E6E27D6664F009F5BD5 /* PaddedLabel.swift in Sources */,
 				DB26FCB727F5D7BF00FA75C3 /* SendButton.swift in Sources */,
+				DB2B8FAC2841198700B4EFB7 /* OpenChannelCell.swift in Sources */,
+				DB2B8FA92841148400B4EFB7 /* RecievedGroupMessageCell.swift in Sources */,
 				DBB7A7FF280DB60F0003E14C /* UIImageView.swift in Sources */,
 				DB711AD027DCEA1700ED1F71 /* extensionChannelListVC.swift in Sources */,
 				DBA5C70E282BF05C0082369C /* NewChannelVC.swift in Sources */,
@@ -504,8 +550,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 39D07C71E1065A0B7EECCDAB /* Pods-simpleChat.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = simpleChat/simpleChat.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PANUB9Z74F;
@@ -522,7 +570,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.simpleChat;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.ivanSimpleChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -534,8 +582,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6F2185F54CAB15A30DBDA6FB /* Pods-simpleChat.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = simpleChat/simpleChat.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PANUB9Z74F;
@@ -552,7 +602,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.simpleChat;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.ivanSimpleChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

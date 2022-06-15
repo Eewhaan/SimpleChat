@@ -11,7 +11,7 @@ import SendBirdSDK
 extension SBDBaseMessage {
     func isSentByMe() -> Bool {
         if let userID = self.sender?.userId {
-            if userID == ChatViewController().userID {
+            if userID == ChannelListViewController().userID {
                 return true
             }
         }
